@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Test from "../Test/Test";
+import React, { useEffect, useState } from "react"; 
 
 const TableForm = () => {
   const [databaseName, setDatabaseName] = useState("");
@@ -72,7 +71,7 @@ const TableForm = () => {
   return (
     <div>
       <div>
-        <Test />
+
       </div>
       <form>
         <div>

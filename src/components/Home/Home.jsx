@@ -1,7 +1,7 @@
 
 import "./home.css";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Home = () => {
 const navigate = useNavigate();
@@ -10,7 +10,7 @@ const navigate = useNavigate();
     <div className="home">
       <h1 className="welcome-message">Bienvenue !</h1>
       <p className="sub-text">
-        Découvrez, créez et participez à des événements passionnants dans votre communauté.
+        <Link to={`/database`}> Database </Link>
       </p>
 
     </div>
