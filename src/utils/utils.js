@@ -1,16 +1,21 @@
 
 
 export const getInputType = (type) => {
-    if (type.startsWith("int")) {
-      return "number";
-    } else if (type.startsWith("varchar")) {
-      return "text";
-    } else if (type.startsWith("date")) {
-      return "date";
-    } else {
-      return "text";
-    }
-  };
+  if (type.startsWith("int")) {
+    return { type: "number" };
+  } else if (type.startsWith("varchar")) {
+    return { type: "text" };
+  } else if (type.startsWith("date")) {
+    return { type: "date" };
+  } else if (type.startsWith("text")) {
+    return { type: "textarea" };
+  } else if (type.startsWith("decimal")) {
+    return { type: "number", step: "0.01" };
+  } else {
+    return { type: "text" };
+  }
+};
+
 
 export const getDatabaseCollection = async () => {
     try {
@@ -110,7 +115,7 @@ export const insertRow = async (databaseName, tableName, values) => {
         console.error('Error inserting row:', error);
     }
 }
-export const CreateTable = async (databaseName, tableName, columns) => {
+export const createTable = async (databaseName, tableName, columns) => {
     try{
         const responce = await fetch(`http://localhost/BDD_Creator/src/routes/POST/table/createTable.php`, {
             method: "POST",

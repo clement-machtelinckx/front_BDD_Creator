@@ -73,12 +73,15 @@ const SelectedTable = () => {
       <div>
         {colData.length > 0 && (
           <form onSubmit={handleSubmit}>
-            {colData.map((column) => (
-              <div key={column.Field}>
-                <label htmlFor={column.Field}>{column.Field}</label>
-                <input type={getInputType(column.Type)} name={column.Field} id={column.Field} onChange={handleInputChange} />
-              </div>
-            ))}
+            {colData.map((column) => {
+              const { type, step } = getInputType(column.Type);
+              return (
+                <div key={column.Field}>
+                  <label htmlFor={column.Field}>{column.Field}</label>
+                  <input type={type} name={column.Field} id={column.Field} step={step} onChange={handleInputChange} />
+                </div>
+              );
+            })}
             <button type="submit">Submit</button>
           </form>
         )}

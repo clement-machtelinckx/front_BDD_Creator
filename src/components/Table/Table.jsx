@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link, useParams } from "react-router-dom";
 import { getTableCollection } from "../../utils/utils";
-import CreateTable from "../Modules/CreateTable";
+import CreateTables from "../Modules/CreateTables";
 
 const Table = () => {
   const { databaseName } = useParams();
@@ -37,7 +37,7 @@ const Table = () => {
         )}
       </div>
       <div>
-        <CreateTable/>
+        <CreateTables/>
       </div>
     </div>
   );
