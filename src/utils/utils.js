@@ -115,26 +115,156 @@ export const insertRow = async (databaseName, tableName, values) => {
         console.error('Error inserting row:', error);
     }
 }
-export const createTable = async (databaseName, tableName, columns) => {
-    try{
-        const responce = await fetch(`http://localhost/BDD_Creator/src/routes/POST/table/createTable.php`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ databaseName, tableName, columns }),
-        });
-        if(!responce.ok){
-            throw new Error(`HTTP error! status: ${responce.status}`);
-        }
+export const createTable = async (databaseName, tableName) => {
+  try {
+    const response = await fetch(`http://localhost/BDD_Creator/src/routes/POST/table/createTable.php`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        databaseName,
+        tableName,
+        columns: "id INT PRIMARY KEY AUTO_INCREMENT PRIMARY KEY",
+      }),
+    });
 
-        const data = await responce.json();
-        return data;
-    } catch (error) {
-        console.error('Error creating table:', error);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error creating table:", error);
+  }
+};
+
+export const createDatabase = async (databaseName) => {
+  try {
+    const response = await fetch(`http://localhost/BDD_Creator/src/routes/POST/database/createDatabase.php`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ databaseName }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error creating database:", error);
+  }
+};  
+
+export const addColumn = async (databaseName, tableName, columnName, columnType) => {
+  try {
+    const response = await fetch(`http://localhost/BDD_Creator/src/routes/POST/table/createColumn.php`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ databaseName, tableName, columnName, columnType }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error adding column:", error);
+  }
 }
 
+export const deleteTable = async (databaseName, tableName) => {
+  try {
+    const response = await fetch(`http://localhost/BDD_Creator/src/routes/DELETE/table/dropTables.php`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ databaseName, tableName }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error deleting table:", error);
+  }
+}
+
+export const deleteDatabase = async (databaseName) => {
+  try {
+    const response = await fetch(`http://localhost/BDD_Creator/src/routes/DELETE/database/dropDatabase.php`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ databaseName }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error deleting database:", error);
+  }
+}
+
+export const deleteRow = async (databaseName, tableName, id) => {
+  try {
+    const response = await fetch(`http://localhost/BDD_Creator/src/routes/DELETE/table/deleteRow.php`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ databaseName, tableName, id }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error deleting row:", error);
+  }
+}
+
+export const deleteColumn = async (databaseName, tableName, columnName) => {
+  try {
+    const response = await fetch(`http://localhost/BDD_Creator/src/routes/DELETE/table/deleteColumn.php`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ databaseName, tableName, columnName }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error deleting column:", error);
+  }
+}
 
 
 

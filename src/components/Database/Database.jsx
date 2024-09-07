@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { getDatabaseCollection } from "../../utils/utils";
 import { useParams } from "react-router-dom";
+import CreateDatabase from "../Modules/CreateDatabase";
 
 const Database = () => {
   const navigate = useNavigate();
@@ -21,12 +22,17 @@ const Database = () => {
   return (
     <div>
       <div>
+        <CreateDatabase/>
       <h1>db</h1>
         {data.length > 0 ? (
           <ul>
             {data.map((databaseName, index) => (
-              <li key={index}><Link to={`/${databaseName}`}>{databaseName}</Link></li>
+              <li key={index}><Link to={`/${databaseName}`}>{databaseName}</Link>
+              <button onClick={() => navigate(`/${databaseName}/delete/`)}>Delete</button>
+              </li>
+              
             ))}
+
           </ul>
         ) : (
           <p>Loading...</p>

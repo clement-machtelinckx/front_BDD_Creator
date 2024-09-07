@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, Link, useParams } from "react-router-dom";
 import { getTable, getTableColumnValue, getInputType, insertRow } from "../../utils/utils";
 import "./selectedTable.css";
+import AddColumn from "../Modules/AddColumn";
 
 const SelectedTable = () => {
   const navigate = useNavigate();
@@ -52,6 +53,7 @@ const SelectedTable = () => {
   return (
     <div>
       <h1>{tableName}</h1>
+      <AddColumn/>
       <table>
         <thead>
           <tr>
