@@ -224,14 +224,14 @@ export const deleteDatabase = async (databaseName) => {
   }
 }
 
-export const deleteRow = async (databaseName, tableName, id) => {
+export const deleteRow = async (databaseName, tableName, columnName, value) => {
   try {
-    const response = await fetch(`http://localhost/BDD_Creator/src/routes/DELETE/table/deleteRow.php`, {
+    const response = await fetch(`http://localhost/BDD_Creator/src/routes/DELETE/table/dropRow.php`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ databaseName, tableName, id }),
+      body: JSON.stringify({ databaseName, tableName, columnName, value }),
     });
 
     if (!response.ok) {
@@ -247,7 +247,7 @@ export const deleteRow = async (databaseName, tableName, id) => {
 
 export const deleteColumn = async (databaseName, tableName, columnName) => {
   try {
-    const response = await fetch(`http://localhost/BDD_Creator/src/routes/DELETE/table/deleteColumn.php`, {
+    const response = await fetch(`http://localhost/BDD_Creator/src/routes/DELETE/table/dropColumn.php`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -263,6 +263,48 @@ export const deleteColumn = async (databaseName, tableName, columnName) => {
     return data;
   } catch (error) {
     console.error("Error deleting column:", error);
+  }
+}
+
+export const updateTableName = async (databaseName, tableName, newTableName) => {
+  try {
+    const response = await fetch(`http://localhost/BDD_Creator/src/routes/PATCH/table/updateTableName.php`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ databaseName, tableName, newTableName }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error updating table name:", error);
+  }
+}
+
+export const updateRow = async (databaseName, tableName, columnName, newValues) => {
+  try {
+    const response = await fetch(`http://localhost/BDD_Creator/src/routes/PATCH/table/updateRow.php`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ databaseName, tableName, columnName, newValues }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error updating row:", error);
   }
 }
 

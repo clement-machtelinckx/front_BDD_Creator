@@ -3,6 +3,9 @@ import { useNavigate, Link, useParams } from "react-router-dom";
 import { getTable, getTableColumnValue, getInputType, insertRow } from "../../utils/utils";
 import "./selectedTable.css";
 import AddColumn from "../Modules/AddColumn";
+import DeleteColumn from "../Modules/DELETE/DeleteColumn";
+import DeleteRow from "../Modules/DELETE/DeleteRow";
+import UpdateRow from "../Modules/PATCH/UpdateRow";
 
 const SelectedTable = () => {
   const navigate = useNavigate();
@@ -53,7 +56,7 @@ const SelectedTable = () => {
   return (
     <div>
       <h1>{tableName}</h1>
-      <AddColumn/>
+      <AddColumn/><DeleteColumn/>
       <table>
         <thead>
           <tr>
@@ -68,6 +71,20 @@ const SelectedTable = () => {
               {colData.map((col, index) => (
                 <td key={index}>{row[col.Field]}</td>
               ))}
+              <DeleteRow
+                databaseName={databaseName}
+                tableName={tableName}
+                columnName="id" 
+                value={row.id} 
+              />
+              <td>
+              <UpdateRow
+                databaseName={databaseName}
+                tableName={tableName}
+                columnName={colData[0].Field}
+                rowData={row}
+              />
+            </td>
             </tr>
           ))}
         </tbody>

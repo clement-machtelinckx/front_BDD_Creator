@@ -3,6 +3,7 @@ import { useNavigate, Link, useParams } from "react-router-dom";
 import { getTableCollection } from "../../utils/utils";
 import CreateTables from "../Modules/CreateTables";
 import DeleteTable from "../Modules/DELETE/DeleteTable";
+import UpdateTableName from "../Modules/PATCH/UpdateTableName";
 
 const Table = () => {
   const { databaseName } = useParams();
@@ -31,6 +32,10 @@ const Table = () => {
               <li key={index}>
                 <Link to={`/${databaseName}/${tableName}`}>{tableName}</Link>
                 <button onClick={() => navigate(`/${databaseName}/delete/${tableName}`)}>Delete</button>
+                <UpdateTableName
+              databaseName={databaseName}
+              tableName={tableName}
+            />
               </li>
             ))}
           </ul>
