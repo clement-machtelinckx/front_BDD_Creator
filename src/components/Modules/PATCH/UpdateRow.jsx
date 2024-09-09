@@ -1,14 +1,17 @@
-import React, { useState } from "react";
-import { updateRow } from "../../../utils/utils";
+// UpdateRow.js
 
-const UpdateRow = ({ databaseName, tableName, columnName, rowData }) => {
+import React, { useState } from "react";
+import { updateRow, getInputType } from "../../../utils/utils";
+
+const UpdateRow = ({ databaseName, tableName, rowData, colData }) => {
   const [newValues, setNewValues] = useState(rowData);
   const [isVisible, setIsVisible] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const data = await updateRow(databaseName, tableName, columnName, newValues);
+      const value = newValues.id; // assuming "id" is the column name used for the search key
+      const data = await updateRow(databaseName, tableName, "id", value, newValues);
       console.log(data);
       // You can add additional logic here to update the row data in the UI or display a success message
     } catch (error) {
@@ -16,7 +19,6 @@ const UpdateRow = ({ databaseName, tableName, columnName, rowData }) => {
       // You can add additional logic here to display an error message
     }
   };
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setNewValues({ ...newValues, [name]: value });
@@ -29,17 +31,15 @@ const UpdateRow = ({ databaseName, tableName, columnName, rowData }) => {
       </button>
       {isVisible && (
         <form onSubmit={handleSubmit}>
-          {Object.entries(newValues).map(([key, value]) => (
-            <label key={key}>
-              {key}:
-              <input
-                type="text"
-                name={key}
-                value={value}
-                onChange={handleChange}
-              />
-            </label>
-          ))}
+          {colData.map((column) => {
+            const { type, step } = getInputType(column.Type);
+            return (
+              <div key={column.Field}>
+                <label htmlFor={column.Field}>{column.Field}</label>
+                <input type={type} name={column.Field} id={column.Field} step={step} value={newValues[column.Field]} onChange={handleChange} />
+              </div>
+            );
+          })}
           <button type="submit">Submit</button>
         </form>
       )}

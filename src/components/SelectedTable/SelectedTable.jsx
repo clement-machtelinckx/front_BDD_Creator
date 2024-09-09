@@ -1,3 +1,5 @@
+// SelectedTable.js
+
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link, useParams } from "react-router-dom";
 import { getTable, getTableColumnValue, getInputType, insertRow } from "../../utils/utils";
@@ -38,14 +40,14 @@ const SelectedTable = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-  
+
     try {
       const response = await insertRow(databaseName, tableName, [formData]);
-  
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-  
+
       const data = await response.json();
       console.log(data);
     } catch (error) {
@@ -74,17 +76,17 @@ const SelectedTable = () => {
               <DeleteRow
                 databaseName={databaseName}
                 tableName={tableName}
-                columnName="id" 
-                value={row.id} 
+                columnName="id"
+                value={row.id}
               />
               <td>
-              <UpdateRow
-                databaseName={databaseName}
-                tableName={tableName}
-                columnName={colData[0].Field}
-                rowData={row}
-              />
-            </td>
+                <UpdateRow
+                  databaseName={databaseName}
+                  tableName={tableName}
+                  rowData={row}
+                  colData={colData} // pass colData as a prop to UpdateRow
+                />
+              </td>
             </tr>
           ))}
         </tbody>

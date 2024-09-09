@@ -287,22 +287,22 @@ export const updateTableName = async (databaseName, tableName, newTableName) => 
   }
 }
 
-export const updateRow = async (databaseName, tableName, columnName, newValues) => {
+export const updateRow = async (databaseName, tableName, columnName, value, data) => {
   try {
     const response = await fetch(`http://localhost/BDD_Creator/src/routes/PATCH/table/updateRow.php`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ databaseName, tableName, columnName, newValues }),
+      body: JSON.stringify({ databaseName, tableName, columnName, value, data }),
     });
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    const data = await response.json();
-    return data;
+    const res = await response.json();
+    return res;
   } catch (error) {
     console.error("Error updating row:", error);
   }
