@@ -50,14 +50,15 @@ const SelectedTable = () => {
 
       const data = await response.json();
       console.log(data);
+      
     } catch (error) {
       console.error("Error inserting row:", error);
     }
   };
 
   return (
-    <div>
-      <h1>{tableName}</h1>
+    <div className="container">
+      <h1> Table {tableName}</h1>
       <AddColumn/><DeleteColumn/>
       <table>
         <thead>
@@ -69,35 +70,40 @@ const SelectedTable = () => {
         </thead>
         <tbody>
           {data.map((row, index) => (
-            <tr key={index}>
-              {colData.map((col, index) => (
-                <td key={index}>{row[col.Field]}</td>
-              ))}
-              <DeleteRow
-                databaseName={databaseName}
-                tableName={tableName}
-                columnName="id"
-                value={row.id}
-              />
-              <td>
-                <UpdateRow
+            <React.Fragment key={index}>
+              <tr>
+                {colData.map((col, index) => (
+                  <td key={index}>{row[col.Field]}</td>
+                ))}
+                <DeleteRow
                   databaseName={databaseName}
                   tableName={tableName}
-                  rowData={row}
-                  colData={colData} // pass colData as a prop to UpdateRow
+                  columnName="id"
+                  value={row.id}
                 />
-              </td>
-            </tr>
+              </tr>
+              <tr>
+                <td colSpan={colData.length + 1}>
+                  <UpdateRow
+                    databaseName={databaseName}
+                    tableName={tableName}
+                    rowData={row}
+                    colData={colData} // pass colData as a prop to UpdateRow
+                  />
+                </td>
+              </tr>
+            </React.Fragment>
           ))}
         </tbody>
       </table>
+
       <div>
         {colData.length > 0 && (
           <form onSubmit={handleSubmit}>
             {colData.map((column) => {
               const { type, step } = getInputType(column.Type);
               return (
-                <div key={column.Field}>
+                <div key={column.Field} className="insert-row">
                   <label htmlFor={column.Field}>{column.Field}</label>
                   <input type={type} name={column.Field} id={column.Field} step={step} onChange={handleInputChange} />
                 </div>

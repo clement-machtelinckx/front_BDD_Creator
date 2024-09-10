@@ -48,7 +48,7 @@ export const DeleteColumn = () => {
             </option>
           ))}
         </select>
-        <button type="button" onClick={handleDelete}>
+        <button className="btn-delete" type="button" onClick={handleDelete}>
           Delete Column
         </button>
       </form>

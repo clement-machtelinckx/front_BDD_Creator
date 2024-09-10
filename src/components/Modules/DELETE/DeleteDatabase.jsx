@@ -18,9 +18,10 @@ export const DeleteDatabase = () => {
   };
 
   return (
-    <div>
+    <div className="container">
         <h1>Are you sure ? </h1>
-      <button onClick={handleDelete}>Delete Database</button>
+      <button className="btn-delete" onClick={handleDelete}>Delete Database</button>
+      <button className="btn-return" onClick={() => navigate(`/database`)}>Cancel</button>
     </div>
   );
 };

@@ -23,15 +23,15 @@ const Table = () => {
   }, [databaseName]);
 
   return (
-    <div>
+    <div className="container">
       <div>
         <h1>Tables in {databaseName}</h1>
         {data.length > 0 ? (
           <ul>
             {data.map((tableName, index) => (
-              <li key={index}>
+              <li key={index} className="list-item">
                 <Link to={`/${databaseName}/${tableName}`}>{tableName}</Link>
-                <button onClick={() => navigate(`/${databaseName}/delete/${tableName}`)}>Delete</button>
+                <button className="btn-delete" onClick={() => navigate(`/${databaseName}/delete/${tableName}`)}>Delete</button>
                 <UpdateTableName
               databaseName={databaseName}
               tableName={tableName}

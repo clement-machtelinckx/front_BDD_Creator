@@ -20,15 +20,16 @@ const Database = () => {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <div>
         <CreateDatabase/>
-      <h1>db</h1>
+      <h1>Database</h1>
         {data.length > 0 ? (
           <ul>
             {data.map((databaseName, index) => (
-              <li key={index}><Link to={`/${databaseName}`}>{databaseName}</Link>
-              <button onClick={() => navigate(`/${databaseName}/delete/`)}>Delete</button>
+              <li key={index} className="list-item">
+                <Link className="custom-link" to={`/${databaseName}`}>{databaseName}</Link>
+              <button className="btn-delete" onClick={() => navigate(`/${databaseName}/delete/`)}>Delete</button>
               </li>
               
             ))}

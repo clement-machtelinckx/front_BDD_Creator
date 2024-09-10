@@ -7,12 +7,14 @@ const Home = () => {
 const navigate = useNavigate();
 
   return (
-    <div className="home">
-      <h1 className="welcome-message">Bienvenue !</h1>
-      <p className="sub-text">
-        <Link to={`/database`}> Database </Link>
-      </p>
+    <div className="container">
+      <div className="home">
+        <h1 className="welcome-message">Bienvenue !</h1>
+        <p className="sub-text">
+          <Link to={`/database`}> Database </Link>
+        </p>
 
+      </div>
     </div>
   );
 };

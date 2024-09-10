@@ -26,8 +26,8 @@ const UpdateRow = ({ databaseName, tableName, rowData, colData }) => {
 
   return (
     <div>
-      <button onClick={() => setIsVisible(!isVisible)}>
-        {isVisible ? "Hide" : "Update Row"}
+      <button className="btn-hide" onClick={() => setIsVisible(!isVisible)}>
+        {isVisible ? "Hide" : "V"}
       </button>
       {isVisible && (
         <form onSubmit={handleSubmit}>
