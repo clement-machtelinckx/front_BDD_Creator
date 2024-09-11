@@ -4,6 +4,7 @@ import { getTableCollection } from "../../utils/utils";
 import CreateTables from "../Modules/CreateTables";
 import DeleteTable from "../Modules/DELETE/DeleteTable";
 import UpdateTableName from "../Modules/PATCH/UpdateTableName";
+import DumpBase from "../Modules/save/DumpBase";
 
 const Table = () => {
   const { databaseName } = useParams();
@@ -45,6 +46,10 @@ const Table = () => {
       </div>
       <div>
         <CreateTables/>
+      </div>
+      <div>
+        <h1>Save Database</h1>
+        <DumpBase/>
       </div>
     </div>
   );

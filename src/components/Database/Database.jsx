@@ -28,8 +28,8 @@ const Database = () => {
           <ul>
             {data.map((databaseName, index) => (
               <li key={index} className="list-item">
-                <Link className="custom-link" to={`/${databaseName}`}>{databaseName}</Link>
               <button className="btn-delete" onClick={() => navigate(`/${databaseName}/delete/`)}>Delete</button>
+                <Link className="custom-link" to={`/${databaseName}`}>{databaseName}</Link>
               </li>
               
             ))}

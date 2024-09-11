@@ -12,6 +12,7 @@ const navigate = useNavigate();
         <h1 className="welcome-message">Bienvenue !</h1>
         <p className="sub-text">
           <Link to={`/database`}> Database </Link>
+          <Link to={`/restore`}>Restore Database</Link>
         </p>
 
       </div>

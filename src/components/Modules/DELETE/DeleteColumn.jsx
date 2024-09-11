@@ -33,7 +33,7 @@ export const DeleteColumn = () => {
 
   return (
     <div>
-      <h1>Delete Column</h1>
+      <h2>Delete Column</h2>
       <form>
         <label htmlFor="column">Select column to delete:</label>
         <select

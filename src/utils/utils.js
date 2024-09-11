@@ -308,6 +308,60 @@ export const updateRow = async (databaseName, tableName, columnName, value, data
   }
 }
 
+export const dumpBase = async (databaseName) => {
+  try {
+    const response = await fetch(`http://localhost/BDD_Creator/src/routes/POST/database/dumpDatabase.php`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ databaseName }),
+    });
 
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
 
+    const res = await response.json();
+    return res;
+  } catch (error) {
+    console.error("Error dumping database:", error);
+  }
+}
+
+export const getDatabaseSaved = async () => {
+  try {
+    const response = await fetch(`http://localhost/BDD_Creator/src/routes/GET/database/getDatabaseSave.php`);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching database collection:', error);
+  }
+};
+
+export const restoreDatabase = async (databaseNewName, databaseName) => {
+  try {
+    const response = await fetch(`http://localhost/BDD_Creator/src/routes/POST/database/restoreDatabase.php`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ databaseNewName, databaseName }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const res = await response.json();
+    return res;
+  } catch (error) {
+    console.error("Error restoring database:", error);
+  }
+};
 
