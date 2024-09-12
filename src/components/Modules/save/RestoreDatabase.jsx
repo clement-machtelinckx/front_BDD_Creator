@@ -31,7 +31,7 @@ export const RestoreDatabase = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Restore Database</h2>
       {savedDatabases.map((database) => (
         <div key={database.id}>

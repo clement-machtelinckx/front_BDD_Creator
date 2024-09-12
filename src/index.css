@@ -19,6 +19,7 @@ body {
   background-color: rgba(0, 0, 0, 0.925);
   border: white;
   border-radius: 25px;
+  margin-top:20px;
 }
 
 code {
