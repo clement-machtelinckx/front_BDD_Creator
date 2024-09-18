@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link, useParams } from "react-router-dom";
 import { createTable } from "../../utils/utils";
+import BackButton from "./BackButton";
 
 const CreateTables = () => {
   const { databaseName } = useParams();
@@ -27,11 +28,13 @@ const CreateTables = () => {
     } catch (error) {
       console.error("Error creating table:", error);
     }
+    navigate(`/${databaseName}`);
   };
   
 
   return (
-    <div>
+    <div className="container">
+      <BackButton/>
       <h2>Create Table</h2>
       <form onSubmit={handleCreateTableSubmit}>
         <div>

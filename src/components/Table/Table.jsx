@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, Link, useParams } from "react-router-dom";
 import { getTableCollection } from "../../utils/utils";
 import CreateTables from "../Modules/CreateTables";
-import DeleteTable from "../Modules/DELETE/DeleteTable";
 import UpdateTableName from "../Modules/PATCH/UpdateTableName";
 import DumpBase from "../Modules/save/DumpBase";
 import BackButton from "../Modules/BackButton";
@@ -29,6 +28,9 @@ const Table = () => {
       <BackButton/>
       <div>
         <h1>Tables in {databaseName}</h1>
+          <div>
+            <Link to={`/${databaseName}/createTable`}>Create Table</Link>
+          </div>  
         {data.length > 0 ? (
           <ul>
             {data.map((tableName, index) => (
@@ -46,9 +48,7 @@ const Table = () => {
           <p>Loading...</p>
         )}
       </div>
-      <div>
-        <CreateTables/>
-      </div>
+
       <div>
         <h1>Save Database</h1>
         <DumpBase/>

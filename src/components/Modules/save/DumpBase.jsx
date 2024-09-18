@@ -9,19 +9,21 @@ export const DumpBase = () => {
 
   const handleDumpBase = async () => {
     try {
-      const response = await dumpBase(databaseName);
-      const data = await response.json();
-      console.log(data);
-      if (data.result === "success") {
-        setMessage(data.message);
-      } else {
-        setMessage("Error dumping base. Please try again.");
-      }
+      const response = await dumpBase(databaseName)
+        .then((data) => {
+        console.log(data);
+        if (data.result === "success") {
+          setMessage(data.message);
+        } else {
+          setMessage("Error dumping base. Please try again.");
+        }
+      });
     } catch (error) {
       console.error("Error dumping base:", error);
       setMessage("Error dumping base. Please try again.");
     }
   };
+  
 
   return (
     <div>

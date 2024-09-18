@@ -30,7 +30,7 @@ const SelectedTable = () => {
         console.log(data);
       })
       .catch((error) => {
-        console.error("Error fetching database collection:", error);
+        console.error("Error fetching table collection:", error);
       });
   }, []);
 
@@ -90,7 +90,7 @@ const SelectedTable = () => {
                     databaseName={databaseName}
                     tableName={tableName}
                     rowData={row}
-                    colData={colData} // pass colData as a prop to UpdateRow
+                    colData={colData}
                   />
                 </td>
               </tr>

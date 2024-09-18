@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createDatabase } from "../../utils/utils";
+import BackButton from "./BackButton";
 
 export const CreateDatabase = () => {
   const navigate = useNavigate();
@@ -24,13 +25,15 @@ export const CreateDatabase = () => {
       console.log(data);
 
     } catch (error) {
-      console.error("Error creating table:", error);
+      console.error("Error creating database:", error);
     }
+    navigate(`/database`);
   };
   
 
   return (
-    <div>
+    <div className="container">
+      <BackButton/>
       <h2>Create Database</h2>
       <form onSubmit={handleCreateDatabaseSubmit}>
         <div>

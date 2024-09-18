@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { getDatabaseCollection } from "../../utils/utils";
 import { useParams } from "react-router-dom";
-import CreateDatabase from "../Modules/CreateDatabase";
+
 import BackButton from "../Modules/BackButton";
 
 const Database = () => {
@@ -24,7 +24,8 @@ const Database = () => {
     <div className="container">
       <BackButton/>
       <div>
-        <CreateDatabase/>
+        <Link to="/database/create">Create Database</Link>
+
       <h1>Database</h1>
         {data.length > 0 ? (
           <ul>
