@@ -5,6 +5,7 @@ import CreateTables from "../Modules/CreateTables";
 import DeleteTable from "../Modules/DELETE/DeleteTable";
 import UpdateTableName from "../Modules/PATCH/UpdateTableName";
 import DumpBase from "../Modules/save/DumpBase";
+import BackButton from "../Modules/BackButton";
 
 const Table = () => {
   const { databaseName } = useParams();
@@ -25,6 +26,7 @@ const Table = () => {
 
   return (
     <div className="container">
+      <BackButton/>
       <div>
         <h1>Tables in {databaseName}</h1>
         {data.length > 0 ? (

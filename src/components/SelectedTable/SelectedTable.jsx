@@ -8,6 +8,7 @@ import AddColumn from "../Modules/AddColumn";
 import DeleteColumn from "../Modules/DELETE/DeleteColumn";
 import DeleteRow from "../Modules/DELETE/DeleteRow";
 import UpdateRow from "../Modules/PATCH/UpdateRow";
+import BackButton from "../Modules/BackButton";
 
 const SelectedTable = () => {
   const navigate = useNavigate();
@@ -58,6 +59,7 @@ const SelectedTable = () => {
 
   return (
     <div className="container">
+      <BackButton/>
       <h1> Table {tableName}</h1>
       <AddColumn/><DeleteColumn/>
       <table>

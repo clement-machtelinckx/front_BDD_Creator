@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getDatabaseSaved, restoreDatabase } from "../../../utils/utils";
+import BackButton from "../BackButton";
 
 export const RestoreDatabase = () => {
   const [savedDatabases, setSavedDatabases] = useState([]);
@@ -32,6 +33,7 @@ export const RestoreDatabase = () => {
 
   return (
     <div className="container">
+      <BackButton/>
       <h2>Restore Database</h2>
       {savedDatabases.map((database) => (
         <div key={database.id}>

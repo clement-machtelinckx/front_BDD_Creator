@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { getDatabaseCollection } from "../../utils/utils";
 import { useParams } from "react-router-dom";
 import CreateDatabase from "../Modules/CreateDatabase";
+import BackButton from "../Modules/BackButton";
 
 const Database = () => {
   const navigate = useNavigate();
@@ -21,6 +22,7 @@ const Database = () => {
 
   return (
     <div className="container">
+      <BackButton/>
       <div>
         <CreateDatabase/>
       <h1>Database</h1>
