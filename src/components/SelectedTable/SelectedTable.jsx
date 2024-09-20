@@ -55,6 +55,7 @@ const SelectedTable = () => {
     } catch (error) {
       console.error("Error inserting row:", error);
     }
+    window.location.reload();
   };
 
   return (

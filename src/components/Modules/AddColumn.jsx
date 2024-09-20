@@ -19,6 +19,11 @@ export const AddColumn = () => {
   const handleAddColumnSubmit = async (event) => {
     event.preventDefault();
 
+    // if (columnType === ""){
+
+    //   return;
+    // }
+
     try {
       const response = await addColumn(databaseName, tableName, columnName, columnType);
 
@@ -29,9 +34,13 @@ export const AddColumn = () => {
       const data = await response.json();
       console.log(data);
 
+
+
     } catch (error) {
       console.error("Error adding column:", error);
     }
+
+    window.location.reload();
   };
 
   return (
@@ -45,6 +54,7 @@ export const AddColumn = () => {
         <div>
           <label htmlFor="columnType">Column Type</label>
           <select name="columnType" id="columnType" onChange={handleColumnTypeChange}>
+            <option value="">--Select Type--</option>
             <option value="INT(9)">INT(9)</option>
             <option value="VARCHAR(255)">VARCHAR(255)</option>
             <option value="TEXT">TEXT</option>

@@ -3,6 +3,7 @@ import "./home.css";
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 
+
 const Home = () => {
 const navigate = useNavigate();
 
