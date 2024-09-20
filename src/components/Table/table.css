@@ -1,28 +1,25 @@
-.database_list {
+.tablee {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
+}
+.tablee h1 {
+    color: white;
+    margin: 20px;
 }
 
-
-.create_db {
-    margin-top: 100px;
-    
-
-}
-
-.create_db p {
+.create_table p {
     color: white;
     margin: 0;
     margin-left: 20px;
 }
 
-.create_db a {
+.create_table a {
     text-decoration: none;
     color: white;
 }
 
-.create_db a:hover {
+.create_table a:hover {
     text-decoration: underline;
 }
+

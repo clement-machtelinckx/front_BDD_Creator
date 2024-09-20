@@ -32,6 +32,8 @@ export const AddColumn = () => {
     } catch (error) {
       console.error("Error adding column:", error);
     }
+    window.location.reload();
+
   };
 
   return (
@@ -45,6 +47,7 @@ export const AddColumn = () => {
         <div>
           <label htmlFor="columnType">Column Type</label>
           <select name="columnType" id="columnType" onChange={handleColumnTypeChange}>
+            <option value="">--Select Type--</option>
             <option value="INT(9)">INT(9)</option>
             <option value="VARCHAR(255)">VARCHAR(255)</option>
             <option value="TEXT">TEXT</option>

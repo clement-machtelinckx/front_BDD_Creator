@@ -18,6 +18,8 @@ const UpdateRow = ({ databaseName, tableName, rowData, colData }) => {
       console.error("Error updating row:", error);
       // You can add additional logic here to display an error message
     }
+    window.location.reload();
+
   };
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -27,7 +29,7 @@ const UpdateRow = ({ databaseName, tableName, rowData, colData }) => {
   return (
     <div>
       <button className="btn-hide" onClick={() => setIsVisible(!isVisible)}>
-        {isVisible ? "Hide" : "V"}
+        {isVisible ? "Hide" : "Upadate"}
       </button>
       {isVisible && (
         <form onSubmit={handleSubmit}>

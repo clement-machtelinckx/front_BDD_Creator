@@ -1,6 +1,8 @@
 
 import "./home.css";
 import React from "react";
+
+
 import { useNavigate, Link } from "react-router-dom";
 
 const Home = () => {
@@ -9,14 +11,15 @@ const navigate = useNavigate();
   return (
     <div className="container">
       <div className="home">
-        <h1 className="welcome-message">Bienvenue !</h1>
-        <p className="sub-text">
-          <Link to={`/database`}> Database </Link>
-
-        </p>
-        <p className="sub-text">
-        <Link to={`/restore`}>Restore Database</Link>
-        </p>
+        <h1 className="welcome-message">Welcome on BDD Creator</h1>
+        <h3>the best DatabaseManager </h3>
+        <p>made by wish</p>
+        <div>
+          <img src="https://picsum.photos/id/200/200/300" alt="lorem image" />
+          <img src="https://picsum.photos/id/197/200/300" alt="lorem image" />
+          <img src="https://picsum.photos/id/198/200/300" alt="lorem image" />
+          <img src="https://picsum.photos/id/199/200/300" alt="lorem image" />
+        </div>
 
       </div>
     </div>

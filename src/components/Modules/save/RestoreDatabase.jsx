@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getDatabaseSaved, restoreDatabase } from "../../../utils/utils";
-import BackButton from "../BackButton";
+import './restore_db.css';
+
 
 export const RestoreDatabase = () => {
   const [savedDatabases, setSavedDatabases] = useState([]);
@@ -20,10 +21,10 @@ export const RestoreDatabase = () => {
         databaseName
       );
       console.log(response);
-      // You can add additional logic here to display a success message or update the UI
+
     } catch (error) {
       console.error("Error restoring database:", error);
-      // You can add additional logic here to display an error message
+
     }
   };
 
@@ -33,11 +34,12 @@ export const RestoreDatabase = () => {
 
   return (
     <div className="container">
-      <BackButton/>
       <h2>Restore Database</h2>
+      <div className="restore_db">
       {savedDatabases.map((database) => (
         <div key={database.id}>
-          <input
+          <label htmlFor="">Enter New Name </label>
+          <input 
             type="text"
             value={newDatabaseNames[database.name] || ""}
             onChange={(e) =>
@@ -50,6 +52,7 @@ export const RestoreDatabase = () => {
           <p>{database.name}</p>
         </div>
       ))}
+      </div>
     </div>
   );
 };

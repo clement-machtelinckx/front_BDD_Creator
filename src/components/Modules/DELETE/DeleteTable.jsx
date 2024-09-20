@@ -18,9 +18,11 @@ export const DeleteTable = () => {
 
   return (
     <div className="container">
-        <h1>Are you sure ? </h1>
-      <button className="btn-delete" onClick={handleDelete}>Delete Table</button>
-      <button className="btn-return" onClick={() => navigate(`/${databaseName}`)}>Cancel</button>
+      <div className="AYS">
+          <h1>Are you sure ? </h1>
+        <button className="btn-delete" onClick={handleDelete}>Delete Table</button>
+        <button className="btn-return" onClick={() => navigate(`/${databaseName}`)}>Cancel</button>
+      </div>
     </div>
   );
 };

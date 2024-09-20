@@ -29,6 +29,8 @@ export const DeleteColumn = () => {
       .catch((error) => {
         console.error("Error deleting column:", error);
       });
+      window.location.reload();
+
   };
 
   return (

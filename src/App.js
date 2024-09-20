@@ -9,6 +9,7 @@ import DeleteTable from './components/Modules/DELETE/DeleteTable';
 import DeleteDatabase from './components/Modules/DELETE/DeleteDatabase';
 import CreateDatabase from './components/Modules/CreateDatabase';
 import CreateTables from './components/Modules/CreateTables';
+import Header from './components/Header/Header';
 import { RestoreDatabase } from './components/Modules/save/RestoreDatabase';
 
 
@@ -18,6 +19,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <Header/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/restore" element={<RestoreDatabase />} />

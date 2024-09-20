@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, Link, useParams } from "react-router-dom";
 import { createTable } from "../../utils/utils";
 import BackButton from "./BackButton";
+import './create.css';
 
 const CreateTables = () => {
   const { databaseName } = useParams();
