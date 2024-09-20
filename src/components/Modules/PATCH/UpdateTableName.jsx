@@ -16,7 +16,6 @@ const UpdateTableName = ({ databaseName, tableName }) => {
       console.error("Error updating table name:", error);
       // You can add additional logic here to display an error message
     }
-    window.location.reload();
   };
 
   return (

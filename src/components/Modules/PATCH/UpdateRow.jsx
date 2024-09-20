@@ -18,7 +18,6 @@ const UpdateRow = ({ databaseName, tableName, rowData, colData }) => {
       console.error("Error updating row:", error);
       // You can add additional logic here to display an error message
     }
-    window.location.reload();
   };
   const handleChange = (event) => {
     const { name, value } = event.target;

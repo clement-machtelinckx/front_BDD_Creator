@@ -12,7 +12,6 @@ const DeleteRow = ({ databaseName, tableName, columnName, value }) => {
     } catch (error) {
       console.error("Error deleting row:", error);
     }
-    window.location.reload();
   };
 
   return <button className="btn-delete" onClick={handleDelete}>Delete Row</button>;
