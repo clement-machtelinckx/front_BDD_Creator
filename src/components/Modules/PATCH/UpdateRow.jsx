@@ -26,23 +26,20 @@ const UpdateRow = ({ databaseName, tableName, rowData, colData }) => {
 
   return (
     <div>
-      <button className="btn-hide" onClick={() => setIsVisible(!isVisible)}>
-        {isVisible ? "Hide" : "Upadate"}
-      </button>
-      {isVisible && (
+
+  
         <form onSubmit={handleSubmit}>
           {colData.map((column) => {
             const { type, step } = getInputType(column.Type);
             return (
               <div key={column.Field}>
-                <label htmlFor={column.Field}>{column.Field}</label>
+                {/* <label htmlFor={column.Field}>{column.Field}</label> */}
                 <input type={type} name={column.Field} id={column.Field} step={step} value={newValues[column.Field]} onChange={handleChange} />
               </div>
             );
           })}
           <button type="submit">Submit</button>
         </form>
-      )}
     </div>
   );
 };
