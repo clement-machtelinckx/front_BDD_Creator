@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { getDatabaseSaved, restoreDatabase } from "../../../utils/utils";
+import { useNavigate } from "react-router-dom";
 import './restore_db.css';
 
 
 export const RestoreDatabase = () => {
   const [savedDatabases, setSavedDatabases] = useState([]);
   const [newDatabaseNames, setNewDatabaseNames] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     getDatabaseSaved().then((data) => {
@@ -26,6 +28,9 @@ export const RestoreDatabase = () => {
       console.error("Error restoring database:", error);
 
     }
+    navigate(`/${newDatabaseNames[databaseName]}`);
+
+
   };
 
   const handleNewDatabaseNameChange = (databaseName, newName) => {

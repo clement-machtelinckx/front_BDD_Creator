@@ -76,9 +76,14 @@ const SelectedTable = () => {
           {data.map((row, index) => (
             <React.Fragment key={index}>
               <tr>
-                {colData.map((col, index) => (
-                  <td key={index}>{row[col.Field]}</td>
-                ))}
+              <td colSpan={colData.length + 1}>
+                  <UpdateRow
+                    databaseName={databaseName}
+                    tableName={tableName}
+                    rowData={row}
+                    colData={colData}
+                  />
+                </td>
                 <DeleteRow
                   databaseName={databaseName}
                   tableName={tableName}
@@ -87,14 +92,14 @@ const SelectedTable = () => {
                 />
               </tr>
               <tr>
-                <td colSpan={colData.length + 1}>
+                {/* <td colSpan={colData.length + 1}>
                   <UpdateRow
                     databaseName={databaseName}
                     tableName={tableName}
                     rowData={row}
                     colData={colData}
                   />
-                </td>
+                </td> */}
               </tr>
             </React.Fragment>
           ))}
@@ -102,6 +107,7 @@ const SelectedTable = () => {
       </table>
 
       <div>
+        <h1>Insert Row</h1>
         {colData.length > 0 && (
           <form onSubmit={handleSubmit}>
             {colData.map((column) => {
