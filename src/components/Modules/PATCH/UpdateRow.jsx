@@ -10,13 +10,11 @@ const UpdateRow = ({ databaseName, tableName, rowData, colData }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const value = newValues.id; // assuming "id" is the column name used for the search key
+      const value = newValues.id; 
       const data = await updateRow(databaseName, tableName, "id", value, newValues);
       console.log(data);
-      // You can add additional logic here to update the row data in the UI or display a success message
     } catch (error) {
       console.error("Error updating row:", error);
-      // You can add additional logic here to display an error message
     }
     window.location.reload();
 

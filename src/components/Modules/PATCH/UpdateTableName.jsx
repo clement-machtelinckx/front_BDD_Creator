@@ -11,10 +11,8 @@ const UpdateTableName = ({ databaseName, tableName }) => {
     try {
       const data = await updateTableName(databaseName, tableName, newTableName);
       console.log(data);
-      // You can add additional logic here to update the table name in the UI or display a success message
     } catch (error) {
       console.error("Error updating table name:", error);
-      // You can add additional logic here to display an error message
     }
     window.location.reload();
 
@@ -22,8 +20,8 @@ const UpdateTableName = ({ databaseName, tableName }) => {
 
   return (
     <div>
-      <button onClick={() => setIsVisible(!isVisible)}>
-        {isVisible ? "Hide" : "Update Table Name"}
+      <button className="btn-hide2" onClick={() => setIsVisible(!isVisible)}>
+        {isVisible ? "Hide" : "Update Name"}
       </button>
       {isVisible && (
         <form onSubmit={handleSubmit}>

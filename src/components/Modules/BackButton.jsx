@@ -8,7 +8,7 @@ export const BackButton = () => {
     navigate(-1);
   };
 
-  return <button onClick={handleBackButtonClick}>Back</button>;
+  return <button className="back-btn" onClick={handleBackButtonClick}>Back</button>;
 };
 
 export default BackButton;

@@ -1,6 +1,7 @@
 
 import "./home.css";
 import React from "react";
+// import ImageLoop from "../Test/Test";
 
 
 import { useNavigate, Link } from "react-router-dom";
@@ -16,12 +17,13 @@ const navigate = useNavigate();
         <p>made by wish</p>
         <div>
           <img src="https://picsum.photos/id/200/200/300" alt="lorem image" />
-          <img src="https://picsum.photos/id/197/200/300" alt="lorem image" />
-          <img src="https://picsum.photos/id/198/200/300" alt="lorem image" />
-          <img src="https://picsum.photos/id/199/200/300" alt="lorem image" />
+          <img src="https://picsum.photos/id/169/200/300" alt="lorem image" />
+          <img src="https://picsum.photos/id/190/200/300" alt="lorem image" />
+          <img src="https://picsum.photos/id/292/200/300" alt="lorem image" />
         </div>
 
       </div>
+      <test/>
     </div>
   );
 };

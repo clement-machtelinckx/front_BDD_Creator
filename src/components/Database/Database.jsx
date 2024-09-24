@@ -42,7 +42,7 @@ const Database = () => {
         </div>
         <div className="create_db">
           <h3>Create your database</h3>
-        <Link to="/database/create">Create Database</Link>
+        <Link className="custom-link" to="/database/create">Create Database</Link>
         </div>
       </div>
     </div>

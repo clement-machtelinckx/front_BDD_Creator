@@ -38,9 +38,9 @@ export const CreateDatabase = () => {
       <form onSubmit={handleCreateDatabaseSubmit}>
         <div>
           <label htmlFor="databaseName">Database Name</label>
-          <input type="text" name="databaseName" id="databaseName" onChange={handleCreateDatabaseInputChange} />
+          <input type="text" className="chant" name="databaseName" id="databaseName" onChange={handleCreateDatabaseInputChange} />
         </div>
-        <button type="submit">Create Database</button>
+        <button className="create-btn" type="submit">Create Database</button>
       </form>
     </div>
   );
