@@ -19,7 +19,7 @@ export const getInputType = (type) => {
 
 export const getDatabaseCollection = async () => {
     try {
-      const response = await fetch(`http://localhost/BDD_Creator/src/routes/GET/database/getCollectionDatabases.php`);
+      const response = await fetch(`http://localhost/src/routes/GET/database/getCollectionDatabases.php`);
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -34,7 +34,7 @@ export const getDatabaseCollection = async () => {
 
 export const getTableCollection = async (databaseName) => {
     try {
-      const response = await fetch(`http://localhost/BDD_Creator/src/routes/GET/table/getCollectionTable.php`, {
+      const response = await fetch(`http://localhost/src/routes/GET/table/getCollectionTable.php`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -56,7 +56,7 @@ export const getTableCollection = async (databaseName) => {
 
 export const getTable = async (databaseName, tableName) => {
     try {
-      const response = await fetch(`http://localhost/BDD_Creator/src/routes/GET/table/getTable.php`, {
+      const response = await fetch(`http://localhost/src/routes/GET/table/getTable.php`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -77,7 +77,7 @@ export const getTable = async (databaseName, tableName) => {
 
 export const getTableColumnValue = async (databaseName, tableName) => {
     try {
-      const response = await fetch(`http://localhost/BDD_Creator/src/routes/GET/table/getTableColumnValue.php`, {
+      const response = await fetch(`http://localhost/src/routes/GET/table/getTableColumnValue.php`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -98,7 +98,7 @@ export const getTableColumnValue = async (databaseName, tableName) => {
 
 export const insertRow = async (databaseName, tableName, values) => {
     try{
-        const responce = await fetch(`http://localhost/BDD_Creator/src/routes/POST/table/insertRow.php`, {
+        const responce = await fetch(`http://localhost/src/routes/POST/table/insertRow.php`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -117,7 +117,7 @@ export const insertRow = async (databaseName, tableName, values) => {
 }
 export const createTable = async (databaseName, tableName) => {
   try {
-    const response = await fetch(`http://localhost/BDD_Creator/src/routes/POST/table/createTable.php`, {
+    const response = await fetch(`http://localhost/src/routes/POST/table/createTable.php`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -142,7 +142,7 @@ export const createTable = async (databaseName, tableName) => {
 
 export const createDatabase = async (databaseName) => {
   try {
-    const response = await fetch(`http://localhost/BDD_Creator/src/routes/POST/database/createDatabase.php`, {
+    const response = await fetch(`http://localhost/src/routes/POST/database/createDatabase.php`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -163,7 +163,7 @@ export const createDatabase = async (databaseName) => {
 
 export const addColumn = async (databaseName, tableName, columnName, columnType) => {
   try {
-    const response = await fetch(`http://localhost/BDD_Creator/src/routes/POST/table/createColumn.php`, {
+    const response = await fetch(`http://localhost/src/routes/POST/table/createColumn.php`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -184,7 +184,7 @@ export const addColumn = async (databaseName, tableName, columnName, columnType)
 
 export const deleteTable = async (databaseName, tableName) => {
   try {
-    const response = await fetch(`http://localhost/BDD_Creator/src/routes/DELETE/table/dropTables.php`, {
+    const response = await fetch(`http://localhost/src/routes/DELETE/table/dropTables.php`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -205,7 +205,7 @@ export const deleteTable = async (databaseName, tableName) => {
 
 export const deleteDatabase = async (databaseName) => {
   try {
-    const response = await fetch(`http://localhost/BDD_Creator/src/routes/DELETE/database/dropDatabase.php`, {
+    const response = await fetch(`http://localhost/src/routes/DELETE/database/dropDatabase.php`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -226,7 +226,7 @@ export const deleteDatabase = async (databaseName) => {
 
 export const deleteRow = async (databaseName, tableName, columnName, value) => {
   try {
-    const response = await fetch(`http://localhost/BDD_Creator/src/routes/DELETE/table/dropRow.php`, {
+    const response = await fetch(`http://localhost/src/routes/DELETE/table/dropRow.php`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -247,7 +247,7 @@ export const deleteRow = async (databaseName, tableName, columnName, value) => {
 
 export const deleteColumn = async (databaseName, tableName, columnName) => {
   try {
-    const response = await fetch(`http://localhost/BDD_Creator/src/routes/DELETE/table/dropColumn.php`, {
+    const response = await fetch(`http://localhost/src/routes/DELETE/table/dropColumn.php`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -268,7 +268,7 @@ export const deleteColumn = async (databaseName, tableName, columnName) => {
 
 export const updateTableName = async (databaseName, tableName, newTableName) => {
   try {
-    const response = await fetch(`http://localhost/BDD_Creator/src/routes/PATCH/table/updateTableName.php`, {
+    const response = await fetch(`http://localhost/src/routes/PATCH/table/updateTableName.php`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -289,7 +289,7 @@ export const updateTableName = async (databaseName, tableName, newTableName) => 
 
 export const updateRow = async (databaseName, tableName, columnName, value, data) => {
   try {
-    const response = await fetch(`http://localhost/BDD_Creator/src/routes/PATCH/table/updateRow.php`, {
+    const response = await fetch(`http://localhost/src/routes/PATCH/table/updateRow.php`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -310,7 +310,7 @@ export const updateRow = async (databaseName, tableName, columnName, value, data
 
 export const dumpBase = async (databaseName) => {
   try {
-    const response = await fetch(`http://localhost/BDD_Creator/src/routes/POST/database/dumpDatabase.php`, {
+    const response = await fetch(`http://localhost/src/routes/POST/database/dumpDatabase.php`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -331,7 +331,7 @@ export const dumpBase = async (databaseName) => {
 
 export const getDatabaseSaved = async () => {
   try {
-    const response = await fetch(`http://localhost/BDD_Creator/src/routes/GET/database/getDatabaseSave.php`);
+    const response = await fetch(`http://localhost/src/routes/GET/database/getDatabaseSave.php`);
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -346,7 +346,7 @@ export const getDatabaseSaved = async () => {
 
 export const restoreDatabase = async (databaseNewName, databaseName) => {
   try {
-    const response = await fetch(`http://localhost/BDD_Creator/src/routes/POST/database/restoreDatabase.php`, {
+    const response = await fetch(`http://localhost/src/routes/POST/database/restoreDatabase.php`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
