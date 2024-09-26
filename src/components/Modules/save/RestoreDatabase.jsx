@@ -28,7 +28,7 @@ export const RestoreDatabase = () => {
       console.error("Error restoring database:", error);
 
     }
-    navigate(`/${newDatabaseNames[databaseName]}`);
+    // navigate(`/${newDatabaseNames[databaseName]}`);
 
 
   };
